@@ -71,4 +71,14 @@ class Controller {
             $this->{strtolower($library)} = $this->load->library($library);
         }
     }
+
+    /**
+     * Parse and show JSON data.
+     * @param array $data
+     */
+    private function json(array $data): void
+    {
+        header('Content-type: application/json');
+        echo json_encode($data);
+    }
 }
