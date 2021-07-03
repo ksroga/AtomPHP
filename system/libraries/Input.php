@@ -6,7 +6,7 @@ namespace System\Libraries;
  * Class Input
  * @package System\Controller
  * @author Konrad Sroga
- * @version 1.0.0 (21.02.2021)
+ * @version 1.0.1 (03.07.2021)
  */
 class Input {
 
@@ -39,22 +39,26 @@ class Input {
 
     /**
      * Get data from GET by key.
-     * @param string $key GET data key.
+     * @param string|null $key GET data key.
      * @return mixed|null GET value or null.
      */
-    public function get(string $key)
+    public function get(?string $key = null)
     {
-        return $this->get[$key] ?? null;
+        return $key
+            ? ($this->get[$key] ?? null)
+            : $this->get;
     }
 
     /**
      * Get data from POST by key.
-     * @param string $key POST data key.
+     * @param string|null $key POST data key.
      * @return mixed|null POST value or null.
      */
-    public function post(string $key)
+    public function post(?string $key = null)
     {
-        return $this->post[$key] ?? null;
+        return $key
+            ? ($this->post[$key] ?? null)
+            : $this->post;
     }
 
     /**
